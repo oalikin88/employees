@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1-4
+      author: Oleg Alikin
+      changes:
+        - loadData:
+            file: ../data/department-data.csv
+            tableName: department
+            separator: ','
+            encoding: UTF-8
+            relativeToChangelogFile: true
+            columns:
+              - column:
+                  name: id
+                  header: ID
+              - column:
+                  name: name
+                  header: NAME
+  - changeSet:
+      id: 1-5
+      author: Oleg Alikin
+      changes:
+        - loadData:
+            file: ../data/employee-data.csv
+            tableName: employee
+            separator: ','
+            encoding: UTF-8
+            relativeToChangelogFile: true
+            columns:
+              - column:
+                  name: id
+                  header: ID
+              - column:
+                  name: department_id
+                  header: DEPARTMENT_ID
+              - column:
+                  name: name
+                  header: NAME
+              - column:
+                  name: surname
+                  header: SURNAME
+              - column:
+                  name: patronymic
+                  header: PATRONYMIC
+              - column:
+                  name: username
+                  header: USERNAME
+              - column:
+                  name: phone
+                  header: PHONE
+              - column:
+                  name: email
+                  header: EMAIL
