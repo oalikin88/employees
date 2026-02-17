@@ -16,6 +16,9 @@ databaseChangeLog:
               - column:
                   name: name
                   header: NAME
+              - column: 
+                  name: code
+                  header: CODE
   - changeSet:
       id: 1-5
       author: Oleg Alikin

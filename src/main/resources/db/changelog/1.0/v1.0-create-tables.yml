@@ -92,5 +92,10 @@ databaseChangeLog:
                     nullable: false
                   name: name
                   type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: code
+                  type: VARCHAR(250)
             tableName: department
         

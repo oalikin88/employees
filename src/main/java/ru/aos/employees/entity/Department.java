@@ -28,14 +28,17 @@ public class Department {
     @Column(unique = true, nullable = false)
     private Long id;
     private String name;
+    private String code;
     @OneToMany(targetEntity = Employee.class, mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Employee> employees = new ArrayList();
-    
-    
+
     @Override
     public String toString() {
-        return "Department{" + "id=" + id + ", name=" + name + '}';
+        return "Department{" + "id=" + id + ", name=" + name + ", code=" + code + ", employees=" + employees + '}';
     }
+    
+    
+    
     
     
 
