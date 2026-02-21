@@ -6,7 +6,7 @@ databaseChangeLog:
         - onFail: MARK_RAN
         - not: 
             tableExists:
-              tableName: employee
+              tableName: employees
       changes:
         - createTable:
             columns:
@@ -23,7 +23,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
                     foreignKeyName: emp_dep_fk
-                    referencedTableName: employee
+                    referencedTableName: employees
                     referencedColumnNames: id
               - column:
                   constraints:
@@ -49,13 +49,13 @@ databaseChangeLog:
                   constraints:
                     nullable: true
                   name: phone
-                  type: INT
+                  type: VARCHAR(12)
               - column:
                   constraints:
                     nullable: false
                   name: email
                   type: VARCHAR(100)
-            tableName: employee
+            tableName: employees
   - changeSet:
       id: 1-2
       author: Oleg Alikin
@@ -76,7 +76,7 @@ databaseChangeLog:
         - onFail: MARK_RAN
         - not: 
             tableExists:
-              tableName: department
+              tableName: departments
       changes:
         - createTable:
             columns:
@@ -97,5 +97,5 @@ databaseChangeLog:
                     nullable: false
                   name: code
                   type: VARCHAR(250)
-            tableName: department
+            tableName: departments
         

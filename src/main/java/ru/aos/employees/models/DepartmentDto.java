@@ -1,5 +1,6 @@
 package ru.aos.employees.models;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +10,7 @@ import lombok.Setter;
  * @author oalikin88
  */
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class DepartmentDto {

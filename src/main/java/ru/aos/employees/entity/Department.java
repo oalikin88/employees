@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.Getter;
@@ -22,19 +23,22 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
+@Table(name = "departments")
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(unique = true, nullable = false)
     private Long id;
     private String name;
+    @Column(unique = true)
     private String code;
     @OneToMany(targetEntity = Employee.class, mappedBy = "department", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Employee> employees = new ArrayList();
+    private List<Employee> employees;
+
 
     @Override
     public String toString() {
-        return "Department{" + "id=" + id + ", name=" + name + ", code=" + code + ", employees=" + employees + '}';
+        return "Department{" + "id=" + id + ", name=" + name + ", code=" + code + '}';
     }
     
     

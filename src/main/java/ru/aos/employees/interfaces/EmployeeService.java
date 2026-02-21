@@ -14,7 +14,7 @@ public interface EmployeeService {
 
     EmployeeDto create(EmployeeRequest request);
     EmployeeDto getById(Long id);
-    EmployeeDto update(EmployeeRequest request);
+    EmployeeDto update(Long id, EmployeeRequest request);
     Page<EmployeeDto> getAll(Pageable pageable);
     void delete(Long id);
 }

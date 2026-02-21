@@ -10,5 +10,5 @@ import ru.aos.employees.entity.Department;
  */
 @Repository
 public interface DepartmentRepo extends JpaRepository<Department, Long>{
-
+    boolean existsByCode(String code);
 }

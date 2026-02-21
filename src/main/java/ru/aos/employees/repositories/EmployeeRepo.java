@@ -11,4 +11,6 @@ import ru.aos.employees.entity.Employee;
 @Repository
 public interface EmployeeRepo extends JpaRepository<Employee, Long>{
 
+    boolean existsByDepartmentId(Long id);
+    boolean existsByUsername(String username);
 }
