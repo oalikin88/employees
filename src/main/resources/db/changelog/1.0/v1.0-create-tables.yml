@@ -17,6 +17,7 @@ databaseChangeLog:
                     primaryKeyName: employee_pkey
                   name: id
                   type: BIGINT
+                  autoIncrement: true
               - column:
                   name: department_id
                   type: BIGINT
@@ -59,19 +60,6 @@ databaseChangeLog:
   - changeSet:
       id: 1-2
       author: Oleg Alikin
-      changes:
-        - createSequence:
-            cacheSize: 1
-            cycle: false
-            dataType: bigint
-            incrementBy: 1
-            maxValue: 9223372036854775807
-            minValue: 1
-            sequenceName: hibernate_sequence
-            startValue: 1
-  - changeSet:
-      id: 1-3
-      author: Oleg Alikin
       preConditions:
         - onFail: MARK_RAN
         - not: 
@@ -87,6 +75,7 @@ databaseChangeLog:
                     primaryKeyName: department_pkey
                   name: id
                   type: BIGINT
+                  autoIncrement: true
               - column:
                   constraints:
                     nullable: false
