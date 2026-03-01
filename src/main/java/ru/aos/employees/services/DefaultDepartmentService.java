@@ -2,7 +2,9 @@ package ru.aos.employees.services;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
+
+import java.util.List;
+
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,9 +46,9 @@ public class DefaultDepartmentService implements DepartmentService {
     }
 
     @Override
-    public Page<DepartmentDto> getAll(Pageable pageable) {
-        Page<Department> departmentPage = departmentRepo.findAll(pageable);
-        return departmentPage.map(this::mapToDto);
+    public List<DepartmentDto> getAll(Pageable pageable) {
+        List<Department> departmentPage = departmentRepo.findAll();
+        return departmentPage.stream().map(this::mapToDto).toList();
     }
 
     @Override

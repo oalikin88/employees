@@ -1,6 +1,9 @@
 package ru.aos.employees.controllers;
 
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -22,13 +25,13 @@ import ru.aos.employees.models.DepartmentRequest;
 @RestController
 @RequestMapping("api/v1/departments")
 @RequiredArgsConstructor
-public class DepartmentCotroller {
+public class DepartmentController {
 
     private final DepartmentService departmentService;
     
     @GetMapping
-    public ResponseEntity<Page<DepartmentDto>> getDepartments(Pageable pageable) {
-        Page<DepartmentDto> departments = departmentService.getAll(pageable);
+    public ResponseEntity<List<DepartmentDto>> getDepartments(Pageable pageable) {
+        List<DepartmentDto> departments = departmentService.getAll(pageable);
         return ResponseEntity.ok(departments);
     }
     

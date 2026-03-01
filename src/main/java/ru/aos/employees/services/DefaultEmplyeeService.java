@@ -3,6 +3,9 @@ package ru.aos.employees.services;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -51,15 +54,22 @@ public class DefaultEmplyeeService implements EmployeeService {
     }
 
     @Override
-    public Page<EmployeeDto> getAll(Pageable pageable) {
-        Page<Employee> page = employeeRepo.findAll(pageable);
-        return page.map(employee -> mapper.toDto(employee));
+    public List<EmployeeDto> getAll() {
+        List<Employee> page = employeeRepo.findAll();
+       
+         return page.stream().map(mapper::toDto).toList();
     }
 
     @Override
     public void delete(Long id) {
         Employee employee = employeeRepo.findById(id).orElseThrow(() -> new EntityNotFoundException("Сотрудника с id: " + id + ", нет в базе данных"));
         employeeRepo.delete(employee);
+    }
+
+    @Override
+    public List<EmployeeDto> getEmployeesByDepartment(Long departmentId) {
+        List<Employee> employees = employeeRepo.findByDepartmentId(departmentId);
+        return employees.stream().map(mapper::toDto).toList();
     }
 
     
